@@ -8,13 +8,11 @@ A sample laravel 5.2 Version project including following features:
 
 Admin User Login:
 
-Email:    admin@admin.com
-password: admin
+Email: admin@admin.com, Password: admin
 
 
 End User Login:
 
-Email:    user@user.com
-password: user
+Email: user@user.com, Password: user
 
 

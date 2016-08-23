@@ -32,18 +32,6 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`migration`, `batch`) VALUES
-('2014_10_12_000000_create_users_table', 1),
-('2014_10_12_100000_create_password_resets_table', 1),
-('2016_08_19_061825_roles', 2),
-('2016_08_19_063323_role_id', 3);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `password_resets`
 --
 

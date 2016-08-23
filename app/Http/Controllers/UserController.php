@@ -17,7 +17,7 @@ class UserController extends Controller {
     }
 
     public function index() {
-        $users = User::orderBy('role_id', 'ASC')->orderBy('id','DESC')->paginate(10);
+        $users = User::orderBy('role_id', 'ASC')->orderBy('id', 'DESC')->paginate(10);
         return view('user.index', ['users' => $users]);
     }
 
@@ -28,7 +28,7 @@ class UserController extends Controller {
                 'role_id' => 'required',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6',
-            ]);            
+            ]);
             $user = new User();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
@@ -41,19 +41,25 @@ class UserController extends Controller {
         $roles = Role::all();
         return view('user.add_user', ['roles' => $roles]);
     }
-    
-    public function edit_user(Request $request, $id = null){
+
+    public function edit_user(Request $request, $id = null) {
         if ($request->isMethod('POST')) {
+            $user_id_check = User::select('id')->where('email', $request->input('email'))->first();
+            if($user_id_check->id == $id){
+                $email_validate = 'required|email|max:255';
+            }else{
+                $email_validate = 'required|email|max:255|unique:users';                
+            }
             $this->validate($request, [
                 'name' => 'required|max:255',
                 'role_id' => 'required',
-                'email' => 'required|email|max:255|unique:users',               
-            ]);            
+                'email' => $email_validate,
+            ]);
             $user = User::find($id);
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            if(!empty($request->input('password'))){
-                $user->password = bcrypt($request->input('password'));            
+            if (!empty($request->input('password'))) {
+                $user->password = bcrypt($request->input('password'));
             }
             $user->role_id = $request->input('role_id');
             $user->save();
@@ -64,8 +70,8 @@ class UserController extends Controller {
         $roles = Role::all();
         return view('user.edit_user', ['roles' => $roles, 'user' => $user]);
     }
-    
-    public function delete_user($id=null){
+
+    public function delete_user($id = null) {
         $user = User::find($id);
         $user->delete();
         Session::flash('es_message', 'User Deleted Successfully.');

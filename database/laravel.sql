@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2016 at 09:12 AM
+-- Generation Time: Aug 23, 2016 at 02:02 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -94,18 +94,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role_id`) VALUES
-(1, 'ziyed', 'ziyed@pwcart.com', '$2y$10$a.sUEDTsQAJgXfA02CpsgOwGc4fnT6F4Qu6rS1AafpRXrAkK5NkIm', 'JJmIHQsi6MZzMYZ6Rho8iVh7PWFE3CAIRr65EoUJR9pMgFc1MryZhwmpRLap', '2016-08-10 03:45:37', '2016-08-19 00:48:58', 2),
-(2, 'sadmin', 'ziyed@gmail.com', '$2y$10$a.sUEDTsQAJgXfA02CpsgOwGc4fnT6F4Qu6rS1AafpRXrAkK5NkIm', 'kJA3GxzmPBz4PSMfFwPqvGOQQP5NAnb7eb9rS0DJYeuvpD1MpRocWRNdbAlr', '2016-08-11 01:06:06', '2016-08-19 06:39:43', 1),
-(4, 'zakir', 'zakir@gmail.com', '$2y$10$mgLtCEnnt1o6y806AtJT1u6hsymmPZ.5SMSzWsEFhVzlaqUTKUD9e', 'TPoku86KKupS3UkMEdKk9VXdODe2sdTsOmTjz5Qn4cR8Yd5BgWL6qbU3TEqU', '2016-08-19 00:54:27', '2016-08-19 00:55:00', 2),
-(7, 'admin', 'admin@pwcart.com', '$2y$10$KF1Xq/o9c/.bghcfDvNrIuakPLKEamLBKIiaxIGenj5xc3qGDLPCS', 'ovqNBKudTs3LPl4vq694pCXAoKg6nCLZzgVsOg6Kt342wOTR8pAvsPZBKvCM', '2016-08-19 05:16:41', '2016-08-19 05:45:10', 2),
-(9, 'jack', 'jack@pwcart.com', '$2y$10$ge0aM04RPZIEy36dZnQxUO8xhirlPVDcRsBCLHcUWTPUwIAvGnALO', NULL, '2016-08-19 05:19:07', '2016-08-19 05:19:07', 1);
+(1, 'Admin', 'admin@admin.com', '$2y$10$SVRJM7x0PuvgEHJLElIPxOts1lBwlHzBZx5yqbfnaU15ZQy2zi2ca', 'nHN9f5Y5uWRfWS6eZM29Cv24GQlXO3UKX4YOFm8YHbKahT2m7QQ4xV8KjeO0', '2016-08-11 01:06:06', '2016-08-23 06:01:02', 1),
+(2, 'User', 'user@user.com', '$2y$10$SOsArQqplbUgrTYXn0zNc.xSkvlGaAUVfGlYSUb/SNvtqneXcKS52', '3O8yMkMilN8aBZhU8G8TmZ6CXnY8qREcPTYsxNCCgFu1ACzvpnab8Vkj8zxW', '2016-08-19 05:19:07', '2016-08-23 05:59:49', 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
